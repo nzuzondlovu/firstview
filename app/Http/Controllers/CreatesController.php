@@ -15,13 +15,14 @@ class CreatesController extends Controller
     public function add(Request $request)
     {
     	$this->validate($request, [
-    		'name' => 'required'
+    		'name' => 'required',
+    		'email' => 'required'
     	]);
 
     	$companies = new Company;
     	$companies->name = $request->input('name');
     	$companies->email = $request->input('email');
-    	$companies->logo = $request->input('logo');
+    	/*$companies->logo = $request->input('logo');*/
     	$companies->website = $request->input('website');
     	$companies->save();
 

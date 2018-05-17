@@ -35,12 +35,12 @@
 			</div>
 			<div class="form-group" id="dynamic_field">
 				<label for="exampleInputEmail1">Assets</label>
-				<div class="input-group mb-3">
+				<!-- <div class="input-group mb-3">
 					<input type="text" id="asset" name="name[]" class="form-control" placeholder="Asset" aria-label="Asset" aria-describedby="basic-addon2">
 					<div class="input-group-append">
 						<button class="btn btn-outline-secondary" type="button" name="add" id="add">Add</button>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
