@@ -28,4 +28,29 @@ class CreatesController extends Controller
 
     	return redirect('/')->with('info', 'Successfully Added New Company!');
     }
+
+    public function update($id)
+    {
+    	$companies = Company::find($id);
+    	return view('company', ['companies' => $companies]);
+    }
+
+    public function edit(Request $request, $id)
+    {
+    	$this->validate($request, [
+    		'name' => 'required',
+    		'email' => 'required'
+    	]);
+
+    	$data = array(
+    		'name' => $request->input('name'),
+    		'email' => $request->input('email'),
+    		/*'logo' => $request->input('logo'),*/
+    		'website' => $request->input('website') 
+    	);
+
+    	Company::where('id', $id)->update($data);
+
+    	return redirect('/')->with('info', 'Successfully Updated Company!');
+    }
 }

@@ -33,3 +33,7 @@ Route::get('/', 'CreatesController@index');
 Route::get('index', 'CreatesController@index');
 
 Route::post('/insert', 'CreatesController@add');
+
+Route::get('/company/{id}', 'CreatesController@update');
+
+Route::post('/update/{id}', 'CreatesController@edit');

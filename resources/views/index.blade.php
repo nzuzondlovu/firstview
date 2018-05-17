@@ -40,7 +40,7 @@
 		                  <td><img class="img img-responsive" src="{{ url('$company->logo') }}"></td>
 		                  <td><a href="http://{{ $company->website }}">{{ $company->website }}</a></td>
 		                  <td>{{ $company->logo }}</td>
-		                  <td><a class="btn btn-info" href="company">View</a></td>
+		                  <td><a class="btn btn-info" href='{{ url("/company/{$company->id}") }}'>View</a></td>
 		                </tr>
                 	@endforeach
               	@endif

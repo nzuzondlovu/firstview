@@ -8,11 +8,11 @@
 	</div>
 	<div class="card-body">
 		<div class="card mb-3">
-			<img class="card-img-top" src="..." alt="Card image cap">
+			<img class="card-img-top" src="{{ url('') }}" alt="Card image cap">
 			<div class="card-body">
-				<h5 class="card-title">Card title</h5>
-				<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-				<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+				<h5 class="card-title"><?php echo $companies->name; ?></h5>
+				<p class="card-text"><?php echo $companies->email; ?> <br/> <?php echo $companies->website; ?></p>
+				<p class="card-text"><small class="text-muted">Assets</small></p>
 			</div>
 		</div>
 	</div>
@@ -26,18 +26,26 @@
 	</div>
 	<div class="card-body">
 		<div class="card-body">
-			<form id="add_assets">
+			@if(count($errors) > 0)
+				@foreach($errors->all() as $error)
+					<div class="alert alert-danger">
+						{{$error}}
+					</div>
+				@endforeach
+			@endif
+			<form id="add_assets" method="post" action="{{ url('/update', array($companies->id)) }}">
+				{{csrf_field()}}
 				<div class="form-group">
 					<label for="exampleInputEmail1">Name</label>
-					<input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
+					<input type="text" name="name" value="<?php echo $companies->name; ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
 				</div>
 				<div class="form-group">
 					<label for="exampleInputEmail1">Email</label>
-					<input type="text" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+					<input type="text" name="email" value="<?php echo $companies->email; ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
 				</div>
 				<div class="form-group">
 					<label for="exampleInputEmail1">Website</label>
-					<input type="text" name="website" class="form-control" id="exampleInputEmail1" placeholder="Enter website">
+					<input type="text" name="website" value="<?php echo $companies->website; ?>" class="form-control" id="exampleInputEmail1" placeholder="Enter website">
 				</div>
 				<div class="form-group">
 					<label for="exampleInputEmail1">Logo</label>
@@ -48,14 +56,14 @@
 				</div>
 				<div class="form-group" id="dynamic_field">
 					<label for="exampleInputEmail1">Assets</label>
-					<div class="input-group mb-3">
+					<!-- <div class="input-group mb-3">
 						<input type="text" id="asset" name="name[]" class="form-control" placeholder="Asset" aria-label="Asset" aria-describedby="basic-addon2">
 						<div class="input-group-append">
 							<button class="btn btn-outline-secondary" type="button" name="add" id="add">Add</button>
 						</div>
-					</div>
+					</div> -->
 				</div>
-				<button type="submit" class="btn btn-primary">Submit</button>
+				<button type="submit" class="btn btn-primary">Update</button>
 			</form>
 		</div>
 	</div>

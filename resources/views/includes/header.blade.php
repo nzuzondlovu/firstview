@@ -28,13 +28,13 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="index">
+          <a class="nav-link" href="{{ url('/') }}">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>       
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="create">
+          <a class="nav-link" href="{{ url('/create') }}">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">New Company</span>
           </a>
