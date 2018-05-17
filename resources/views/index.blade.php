@@ -4,6 +4,11 @@
         <div class="card-header">
           <i class="fa fa-table"></i> Data Table Example</div>
         <div class="card-body">
+        	@if(session('info'))
+	        	<div class="alert alert-success">
+	        		{{session('info')}}
+	        	</div>
+        	@endif
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>

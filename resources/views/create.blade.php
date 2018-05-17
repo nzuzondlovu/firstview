@@ -5,10 +5,18 @@
 		<i class="fa fa-pencil"></i> Add New Company
 	</div>
 	<div class="card-body">
-		<form id="add_assets">
+		@if(count($errors) > 0)
+			@foreach($errors->all() as $error)
+				<div class="alert alert-danger">
+					{{$error}}
+				</div>
+			@endforeach
+		@endif
+		<form id="add_assets" method="post" action="{{ url('/insert') }}">
+			{{csrf_field()}}
 			<div class="form-group">
 				<label for="exampleInputEmail1">Name</label>
-				<input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
+				<input type="text" name="name" class="form-control" id="exampleInputEmail1" required="required" placeholder="Enter name">
 			</div>
 			<div class="form-group">
 				<label for="exampleInputEmail1">Email</label>

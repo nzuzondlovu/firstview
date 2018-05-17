@@ -31,3 +31,5 @@ Route::get('company', function () {
 Route::get('/', 'CreatesController@index');
 
 Route::get('index', 'CreatesController@index');
+
+Route::post('/insert', 'CreatesController@add');
