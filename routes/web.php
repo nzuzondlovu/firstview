@@ -27,3 +27,7 @@ Route::get('index', function () {
 Route::get('company', function () {
     return view('company');
 });
+
+Route::get('/', 'CreatesController@index');
+
+Route::get('index', 'CreatesController@index');

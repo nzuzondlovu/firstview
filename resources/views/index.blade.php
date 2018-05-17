@@ -27,14 +27,18 @@
                 </tr>
               </tfoot>
               <tbody>
-                <tr>
-                  <td>Tiger Nixon</td>
-                  <td>System Architect</td>
-                  <td>Edinburgh</td>
-                  <td>61</td>
-                  <td>2011/04/25</td>
-                  <td><a class="btn btn-info" href="company">View</a></td>
-                </tr>                
+              	@if(count($companies) > 0)
+              		@foreach($companies->all() as $company)
+		                <tr>
+		                  <td>{{ $company->name }}</td>
+		                  <td>{{ $company->email }}</td>
+		                  <td><img class="img img-responsive" src="{{ url('$company->logo') }}"></td>
+		                  <td><a href="http://{{ $company->website }}">{{ $company->website }}</a></td>
+		                  <td>{{ $company->logo }}</td>
+		                  <td><a class="btn btn-info" href="company">View</a></td>
+		                </tr>
+                	@endforeach
+              	@endif
               </tbody>
             </table>
           </div>
