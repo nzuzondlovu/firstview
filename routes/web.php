@@ -12,5 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('create', function () {
+    return view('create');
+});
+
+Route::get('index', function () {
+    return view('index');
+});
+
+
+Route::get('company', function () {
+    return view('company');
 });
