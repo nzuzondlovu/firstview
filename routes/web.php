@@ -11,8 +11,12 @@
 |
 */
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/', function () {
-    return view('index');
+    return view('home');
 });
 
 Route::get('create', function () {
@@ -28,12 +32,12 @@ Route::get('company', function () {
     return view('company');
 });
 
-Route::get('/', 'CreatesController@index');
-
-Route::get('index', 'CreatesController@index');
+Route::get('/index', 'CreatesController@index');
 
 Route::post('/insert', 'CreatesController@add');
 
 Route::get('/company/{id}', 'CreatesController@update');
 
 Route::post('/update/{id}', 'CreatesController@edit');
+
+
