@@ -4,7 +4,7 @@
         <div class="card-header">
           <i class="fa fa-table"></i> Data Table Example</div>
         <div class="card-body">
-        	@if(session('info'))
+        	@if(session('info') || session('status'))
 	        	<div class="alert alert-success">
 	        		{{session('info')}}
 	        	</div>
@@ -37,7 +37,7 @@
 		                <tr>
 		                  <td>{{ $company->name }}</td>
 		                  <td>{{ $company->email }}</td>
-		                  <td><img class="img img-responsive" src="{{ url('$company->logo') }}"></td>
+		                  <td><img class="img-fluid img-thumbnail" src="storage/logos/{{ $company->logo }}"></td>
 		                  <td><a href="http://{{ $company->website }}">{{ $company->website }}</a></td>
 		                  <td>{{ $company->logo }}</td>
 		                  <td><a class="btn btn-info" href='{{ url("/company/{$company->id}") }}'>View</a></td>

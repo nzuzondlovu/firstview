@@ -12,7 +12,7 @@
 				</div>
 			@endforeach
 		@endif
-		<form id="add_assets" method="post" action="{{ url('/insert') }}">
+		<form id="add_assets" method="post" action="{{ url('/insert') }}" enctype="multipart/form-data">
 			{{csrf_field()}}
 			<div class="form-group">
 				<label for="exampleInputEmail1">Name</label>
@@ -29,7 +29,7 @@
 			<div class="form-group">
 				<label for="exampleInputEmail1">Logo</label>
 				<div class="custom-file">
-					<input type="file" class="custom-file-input" id="inputGroupFile02">
+					<input type="file" class="custom-file-input" name="logo" id="inputGroupFile02">
 					<label class="custom-file-label" for="inputGroupFile02">Choose file</label>
 				</div>
 			</div>
