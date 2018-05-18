@@ -61,12 +61,24 @@ class CreatesController extends Controller
     	$this->validate($request, [
     		'name' => 'required',
     		'email' => 'required'
-    	]);
+        ]);
+
+        if ($request->hasFile('logo')) {
+            
+            $filenameWithExt = $request->file('logo')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('logo')->getClientOriginalExtension();
+            $filenameToStore = $filename.'_'.time().'.'.$extension;
+            $path = $request->file('logo')->storeAs('public/logos', $filenameToStore);
+
+        } else {
+            $filenameToStore = 'noimage.jpg';
+        }
 
     	$data = array(
     		'name' => $request->input('name'),
     		'email' => $request->input('email'),
-    		/*'logo' => $request->input('logo'),*/
+    		'logo' => $filenameToStore,
     		'website' => $request->input('website') 
     	);
 

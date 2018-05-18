@@ -8,7 +8,7 @@
 	</div>
 	<div class="card-body">
 		<div class="card mb-3">
-			<img class="card-img-top" src="{{ url('') }}" alt="Card image cap">
+			<img class="card-img-top" src='{{ url("storage/logos/$companies->logo") }}' alt="Card image cap">
 			<div class="card-body">
 				<h5 class="card-title"><?php echo $companies->name; ?></h5>
 				<p class="card-text"><?php echo $companies->email; ?> <br/> <?php echo $companies->website; ?></p>
