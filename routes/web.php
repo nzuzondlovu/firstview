@@ -16,20 +16,35 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', function () {
-    return view('home');
+	return view('home');
 });
 
-Route::get('create', function () {
-    return view('create');
+Route::get('/create', function () {
+
+	if (Auth::guest()) {
+		return redirect::to('auth/login');
+	} else {
+		return view('create');
+	}    
 });
 
-Route::get('index', function () {
-    return view('index');
+Route::get('/index', function () {
+
+	if (Auth::guest()) {
+		return redirect::to('auth/login');
+	} else {
+		return view('index');
+	}
 });
 
 
-Route::get('company', function () {
-    return view('company');
+Route::get('/company', function () {
+
+	if (Auth::guest()) {
+		return redirect::to('auth/login');
+	} else {
+		return view('company');
+	}
 });
 
 Route::get('/index', 'CreatesController@index');
