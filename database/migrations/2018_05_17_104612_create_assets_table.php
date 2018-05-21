@@ -15,6 +15,7 @@ class CreateAssetsTable extends Migration
     {
         Schema::create('assets', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->foreign('company_id')->references('id')->on('companies');
             $table->string('description');
             $table->string('model');

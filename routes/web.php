@@ -22,7 +22,7 @@ Route::get('/', function () {
 Route::get('/create', function () {
 
 	if (Auth::guest()) {
-		return redirect::to('auth/login');
+		return \Redirect::to('/login');
 	} else {
 		return view('create');
 	}    
@@ -31,7 +31,7 @@ Route::get('/create', function () {
 Route::get('/index', function () {
 
 	if (Auth::guest()) {
-		return redirect::to('auth/login');
+		return \Redirect::to('/login');
 	} else {
 		return view('index');
 	}
@@ -41,7 +41,7 @@ Route::get('/index', function () {
 Route::get('/company', function () {
 
 	if (Auth::guest()) {
-		return redirect::to('auth/login');
+		return \Redirect::to('/login');
 	} else {
 		return view('company');
 	}
