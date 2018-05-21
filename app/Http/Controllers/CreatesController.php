@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\database;
 use App\Company;
 use App\Asset;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\ServiceProvider;
 
 class CreatesController extends Controller
 {
@@ -16,8 +19,13 @@ class CreatesController extends Controller
 
 
     public function index(){
-    	$companies = Company::all();
-    	return view('index', ['companies' => $companies]);
+
+      $companies = Company::from('companies')
+            ->join('assets', 'companies.id', '=', 'assets.company_id')
+            ->select('companies.name', 'companies.email', 'companies.logo', 'companies.website', 'assets.name', 'assets.description', 'assets.model', 'assets.value')
+            ->get();
+dd($companies);
+    	//return view('index', ['companies' => $companies]);
     }
 
     public function add(Request $request)
@@ -57,7 +65,15 @@ class CreatesController extends Controller
             $assets->model = $request->model[$key];
             $assets->value = $request->value[$key];
             $assets->save();
-        }            
+        }
+
+        Mail::send('emails.contact', [], function ($m) use($request){
+            $m
+              ->from($request->get('email'))
+              ->to('sanjiarya2112@gmail.com')
+              ->subject('Your Reminder!');
+        });
+
 
         return redirect('/index')->with('info', 'Successfully Added New Company!');
     }

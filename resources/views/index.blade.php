@@ -39,9 +39,7 @@
 		                  <td>{{ $company->email }}</td>
 		                  <td><img class="img-fluid img-thumbnail" src="storage/logos/{{ $company->logo }}"></td>
 		                  <td><a href="http://{{ $company->website }}">{{ $company->website }}</a></td>
-                      @if (1==1)
-		                  <td>{{ $company->logo }}</td>
-                      @endif
+		                  <td>{{ $company-> }}</td>
 		                  <td><a class="btn btn-info" href='{{ url("/company/{$company->id}") }}'>View</a></td>
 		                </tr>
                 	@endforeach
