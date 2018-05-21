@@ -57,7 +57,18 @@
 				<div class="form-group" id="dynamic_field">
 					<label for="exampleInputEmail1">Assets</label>
 					<div class="input-group mb-3">
-						<input type="text" id="asset" name="name[]" class="form-control" placeholder="Asset" aria-label="Asset" aria-describedby="basic-addon2">
+						<div class="col-md-2">
+							<input type="text" id="asset" name="asset[]" class="form-control" placeholder="Asset" aria-label="Asset" aria-describedby="basic-addon2">
+						</div>
+						<div class="col-md-3">
+							<input type="text" id="description" name="description[]" class="form-control" placeholder="Description" aria-label="Description" aria-describedby="basic-addon2">
+						</div>
+						<div class="col-md-2">
+							<input type="text" id="model" name="model[]" class="form-control" placeholder="Model" aria-label="Model" aria-describedby="basic-addon2">
+						</div>
+						<div class="col-md-2">
+							<input type="decimal" id="value" name="value[]" class="form-control" placeholder="Value" aria-label="Value" aria-describedby="basic-addon2">
+						</div>
 						<div class="input-group-append">
 							<button class="btn btn-outline-secondary" type="button" name="add" id="add">Add</button>
 						</div>
@@ -77,7 +88,7 @@
 		var i=1;  
 		$('#add').click(function(){  
 			i++;  
-			$('#dynamic_field').append('<tr width="100%" id="row'+i+'"><td><input type="text" name="name[]" placeholder="Asset" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
+			$('#dynamic_field').append('<tr id="row'+i+'"><td style="width: 20%"><div ><input type="text" id="asset" name="asset[]" class="form-control" placeholder="Asset" aria-label="Asset" aria-describedby="basic-addon2"></div></td><td style="width: 20%"><div><input type="text" id="description" name="description[]" class="form-control" placeholder="Description" aria-label="Description" aria-describedby="basic-addon2"></div></td><td style="width: 20%"><div><input type="text" id="model" name="model[]" class="form-control" placeholder="Model" aria-label="Model" aria-describedby="basic-addon2"></div></td><td style="width: 20%"><div><input type="decimal" id="value" name="value[]" class="form-control" placeholder="Value" aria-label="Value" aria-describedby="basic-addon2"></div></td><td style="width: 20%"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
 		});  
 		$(document).on('click', '.btn_remove', function(){  
 			var button_id = $(this).attr("id");   
