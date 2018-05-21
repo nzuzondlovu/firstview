@@ -24,7 +24,7 @@ class CreatesController extends Controller
     	$this->validate($request, [
     		'name' => 'required',
     		'email' => 'required',
-            'logo' => 'image|nullable|max:1999'
+            'logo' => 'image|nullable|max:1999|dimensions:min_width=100,min_height=100'
     	]);
 
         if ($request->hasFile('logo')) {
