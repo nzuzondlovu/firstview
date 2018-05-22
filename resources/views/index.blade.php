@@ -35,11 +35,11 @@
               	@if(count($companies) > 0)
               		@foreach($companies->all() as $company)
 		                <tr>
-		                  <td>{{ $company->name }}</td>
+		                  <td>{{ $company->company }}</td>
 		                  <td>{{ $company->email }}</td>
 		                  <td><img class="img-fluid img-thumbnail" src="storage/logos/{{ $company->logo }}"></td>
 		                  <td><a href="http://{{ $company->website }}">{{ $company->website }}</a></td>
-		                  <td>{{ $company-> }}</td>
+		                  <td>Asset: {{ $company->asset }}<br>Description: {{ $company->description }}<br>Model: {{ $company->model }}<br>Value: R{{ $company->value }}</td>
 		                  <td><a class="btn btn-info" href='{{ url("/company/{$company->id}") }}'>View</a></td>
 		                </tr>
                 	@endforeach
