@@ -12,7 +12,10 @@
 			<div class="card-body">
 				<h5 class="card-title"><?php echo $companies->name; ?></h5>
 				<p class="card-text"><?php echo $companies->email; ?> <br/> <?php echo $companies->website; ?></p>
-				<p class="card-text"><small class="text-muted">Assets</small></p>
+				<p class="card-text">
+					<small class="text-muted">Assets</small>
+					<small class="text-muted">Assets</small>
+				</p>
 			</div>
 		</div>
 	</div>

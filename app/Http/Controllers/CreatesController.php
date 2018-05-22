@@ -22,7 +22,7 @@ class CreatesController extends Controller
 
     $companies = Company::from('companies')
     ->join('assets', 'companies.id', '=', 'assets.company_id')
-    ->select('companies.company', 'companies.email', 'companies.logo', 'companies.website', 'assets.asset', 'assets.description', 'assets.model', 'assets.value')
+    ->select('companies.id', 'companies.company', 'companies.email', 'companies.logo', 'companies.website', 'assets.asset', 'assets.description', 'assets.model', 'assets.value')
     ->groupBy('companies.id')
     ->get();
     //->pluck('companies');
